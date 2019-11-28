@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>{% block title %}Welcome!{% endblock %}</title>
+    {% block stylesheets %}
+
+        <meta charset="utf-8">
+        <title>Le Greta</title>
+        <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+
+    {% endblock %}
+</head>
+
+<body>
+{% block body %}
+
+    <header>
+    {% block header %}
+        <div>
+            <img src="{{ asset('images/logoLeGreta.png') }}">
+        </div>
+        <div id="menu">
+            <nav>
+                <ul>
+                    <li>
+                        <a id="signinaccount" href="{{ path('admin.index') }}">SE CONNECTER</a>
+                    </li>
+                    <li>
+                        <a id="createdAccount" href="#">CREER UN COMPTE</a>
+                    </li>
+                    <li>
+                        <a id="listePromotions" href="#">AFFICHER LES PROMOTIONS</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+        <div>
+            {% include 'security/_menu.html.twig' %}
+        </div>
+    {% endblock %}
+    </header>
+
+    {% block main %}
+    {% endblock %}
+
+    <footer>
+        {% block footer %}
+            <div id="img_footer">
+                <img src="{{ asset('images/logo-greta.png') }}" alt="petitLogo">
+            </div>
+            <div id="menu_footer">
+                <nav>
+                    <ul>
+                        <li>
+                            <a id="signinaccount" href="#">SE CONNECTER</a>
+                        </li>
+                        <li>
+                            <a id="createdAccount" href="#">CREER UN COMPTE</a>
+                        </li>
+                        <li>
+                            <a id="listePromotions" href="#">AFFICHER LES PROMOTIONS</a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        {% endblock %}
+    </footer>
+
+{% endblock %}
+{% block javascripts %}{% endblock %}
+</body>
+</html>
